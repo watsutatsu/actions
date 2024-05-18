@@ -1,4 +1,4 @@
-# :godmode: base-actions
+# 🔧 base-actions
 > Resuseable actions to use in other repositories
 
 #### Creating a reuseable workflow
