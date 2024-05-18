@@ -1,12 +1,15 @@
 # :godmode: base-actions
 > Resuseable actions to use in other repositories
 
+#### Creating a reuseable workflow
 
-## Examples
+## Creating a Reusable Workflow
 
-### Creating a reuseable workflow
+Reusable workflows in GitHub Actions allow you to define a set of actions once and call them from other workflows. This can save time and ensure consistency across your projects.
 
-Create a new workflow file under [.github/workflows](./github/workflows) 
+### Step 1: Define the Reusable Workflow
+
+Create a new workflow file under the directory  [.github/workflows](./github/workflows) . Let's call it `hello-world-reusable.yml`.
 
 ```yaml
 # .github/workflows/hello-world-reusable.yml
@@ -31,8 +34,9 @@ jobs:
       - name: Say Hello
         run: echo "Hello, ${{ inputs.name }}!"
 ```
+### Step 2: Call the Reusable Workflow
 
-In another repository create another  workflow file under `.github/workflows` and reference this repository
+In another repository (or the same one), create another workflow file under `.github/workflows` and reference the reusable workflow.
 
 ```yaml
 # .github/workflows/call-hello-world.yml
@@ -50,3 +54,7 @@ jobs:
       name: "GitHub Actions"
 
 ```
+
+## Refereneces
+- https://github.com/features/actions
+- https://docs.github.com/en/actions
