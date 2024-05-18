@@ -7,7 +7,7 @@ Reusable workflows in GitHub Actions allow you to define a set of actions once a
 
 ### Step 1: Define the Reusable Workflow
 
-Create a new workflow file under the directory  [.github/workflows](./github/workflows) . Let's call it `hello-world-reusable.yml`.
+Create a new workflow file under the directory  [.github/workflows](./.github/workflows) . Let's call it `hello-world-reusable.yml`.
 
 ```yaml
 # .github/workflows/hello-world-reusable.yml
