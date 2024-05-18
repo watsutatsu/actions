@@ -1,5 +1,14 @@
-# 🔧 base-actions
+# 🔧 actions
 > Resuseable actions to use in other repositories
+
+## Purpose
+
+This repository serves as an incubator for common GitHub Action workflows. The primary goal is to develop, share, and maintain reusable workflows that can be easily integrated into various projects across the organization. 
+
+> [!NOTE]
+> As the structure of this repository evolves, it may become beneficial to separate each workflow into its own dedicated action repository. This approach can enhance maintainability, scalability, and clarity, making it easier to manage, test, and deploy individual workflows.
+
+
 
 ## Creating a Reusable Workflow
 
