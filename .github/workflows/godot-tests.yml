@@ -40,8 +40,7 @@ jobs:
           unzip v${GUT_VERION}.zip
           mv Gut-${GUT_VERION}/addons ./
           rm -rf Gut-${GUT_VERION}
-
-          find -type f # DEBUG
+          
       - name: Run Tests
         run: |
           # HACK - See https://github.com/watsutatsu/godot-samples/issues/3#issuecomment-2119308212
