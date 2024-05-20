@@ -45,6 +45,8 @@ jobs:
           unzip v${GUT_VERION}.zip
           mv Gut-${GUT_VERION}/addons ./
           rm -rf Gut-${GUT_VERION}
+
+          find .
           
       - name: Run Tests
         run: |
