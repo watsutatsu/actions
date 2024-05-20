@@ -5,20 +5,18 @@ on:
     inputs:
       godot_version:
         description: Godot version to use when building the project'
-        required: true
         default: 4.2.2
         type: string
 
       export_name:
         description: Name of the export
-        required: true
-        default: test-project
+        default: main
         type: string
 
       project_path:
         description: Path to the project
         required: true
-        default: games/test-project
+        default: games/main
         type: string
        
 jobs:
