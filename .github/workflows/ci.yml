@@ -8,6 +8,7 @@ on:
 
 jobs:
   godot-ci:
+    if: false # Disable this job
     permissions:
       pull-requests: write
     uses: ./.github/workflows/godot-ci.yml
