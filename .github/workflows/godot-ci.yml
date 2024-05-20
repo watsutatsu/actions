@@ -5,20 +5,17 @@ on:
     inputs:
       godot_version:
         description: Godot version to use when building the project'
-        required: true
         default: 4.2.2
         type: string
 
       export_name:
         description: Name of the export
-        required: true
-        default: test-project
+        default: main
         type: string
 
       project_path:
         description: Path to the project
-        required: true
-        default: games/test-project
+        default: games/main
         type: string
        
 jobs:
@@ -34,7 +31,6 @@ jobs:
           lfs: true
       - name: Setup
         run: |
-          echo 'oh hai ${{inputs.godot_version}}'
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/${{inputs.godot_version}}.stable ~/.local/share/godot/export_templates/${{inputs.godot_version}}.stable
       - name: Web Build
@@ -50,7 +46,6 @@ jobs:
           name: web-build
           path: ${{ inputs.project_path }}/build/web
 
-  
   deploy:
     needs: export-web
     runs-on: ubuntu-latest
