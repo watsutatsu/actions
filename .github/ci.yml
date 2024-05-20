@@ -1,0 +1,12 @@
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    uses: ./.github/workflows/godot-ci.yml
+    with:
+      godot_version: 4.2.2
+      project_path: test/godot-ci-test
