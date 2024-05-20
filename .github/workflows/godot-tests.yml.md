@@ -5,7 +5,7 @@ This workflow automatically downloads GUT and runs the test suite for a Godot ga
 ### Usage
 
 ```yaml
-name: Build and Deploy
+name: godot-tests
 
 on:
   pull_request:
@@ -13,17 +13,13 @@ on:
     branches:
       - main
 
-permissions:
-  pull-requests: write
-
 jobs:
   godot-ci:
-    uses: watsutatsu/actions/.github/workflows/godot-ci.yml@main
+    uses: watsutatsu/actions/.github/workflows/godot-tests.yml@apaz/godot-tests-1
     with:
+      gut_version: 9.2.1
       godot_version: 4.2.2
-      export_name: test-project
-      project_path: games/test-project
-    secrets: inherit
+      project_path: games/main
 ```
 
 ## References
