@@ -35,7 +35,7 @@ jobs:
         run: |
           GUT_VERION=${{ inputs.GUT_VERSION }}
           wget https://github.com/bitwes/Gut/archive/refs/tags/v${GUT_VERION}.zip
-          unzip ${GUT_VERION}.zip
+          unzip v${GUT_VERION}.zip
           mv Gut-${GUT_VERION}/addons ./
           rm -rf Gut-${GUT_VERION}
 
