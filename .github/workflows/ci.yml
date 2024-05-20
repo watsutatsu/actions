@@ -6,7 +6,13 @@ on:
 
 jobs:
   ci:
+    permissions:
+      pull-requests: write
     uses: ./.github/workflows/godot-ci.yml
     with:
-      godot_version: 4.2.2
       project_path: test/godot-ci-test
+    
+  tests:
+    uses: ./.github/workflows/godot-tests.yml
+    with:
+      project_path: test/godot-tests-test
