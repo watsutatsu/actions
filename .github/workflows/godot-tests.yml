@@ -51,6 +51,7 @@ jobs:
       - name: Run Tests
         run: |
           godot --version
+          find .
           echo "::group::importing project"
           # HACK - See https://github.com/watsutatsu/godot-samples/issues/3#issuecomment-2119308212
           godot --headless --import-stuff --editor --path "$PWD"  --quit-after 15
