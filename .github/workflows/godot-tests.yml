@@ -34,6 +34,8 @@ jobs:
       - name: Setup GUT
         run: |
           GUT_VERION=${{ inputs.GUT_VERSION }}
+
+          cd ${{ inputs.project_path }}
           wget https://github.com/bitwes/Gut/archive/refs/tags/v${GUT_VERION}.zip
           unzip v${GUT_VERION}.zip
           mv Gut-${GUT_VERION}/addons ./
