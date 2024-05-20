@@ -34,7 +34,7 @@ jobs:
           lfs: true
       - name: Setup GUT
         run: |
-          wget https://github.com/bitwes/Gut/archive/refs/tags/${{ inputs.GUT_VERSION }}.zip
+          wget https://github.com/bitwes/Gut/archive/refs/tags/v${{ inputs.GUT_VERSION }}.zip
           unzip ${{ inputs.GUT_VERSION }}.zip
       - name: Run Tests
         run: |
