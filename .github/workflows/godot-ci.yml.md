@@ -1,4 +1,4 @@
-## godot-ci.yml.md
+## godot-ci
 
 This workflow automatically builds and updates a Godot game for the web, then puts it online using Netlify. It ensures the game is always current with the latest changes and easily accessible.
 

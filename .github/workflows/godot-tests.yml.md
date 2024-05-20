@@ -1,4 +1,4 @@
-# Godot CI Workflow
+# godot-tests
 
 This workflow automatically downloads GUT (Godot Unit Test) and runs the test suite for a Godot game. It is designed to streamline the process of continuous integration (CI) for your Godot projects by ensuring that your tests are run automatically whenever changes are pushed or pull requests are opened.
 
