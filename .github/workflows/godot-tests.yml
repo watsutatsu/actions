@@ -1,0 +1,64 @@
+name: Godot Tests
+
+on:
+  workflow_call:
+    inputs:
+      godot_version:
+        description: Godot version to use when building the project'
+        required: true
+        default: 4.2.2
+        type: string
+
+      gut_version:
+        description: GUT version to use when running tests
+        required: true
+        default: 9.2.1
+        type: string
+
+      project_path:
+        description: Path to the project
+        required: true
+        default: games/test-project
+        type: string
+
+      test_path:
+        description: Path to the test folder
+        default: res://test/unit
+        type: string
+       
+jobs:
+  godot-tests:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Setup GUT
+        working-directory: ${{ inputs.project_path }}
+        run: |
+          GUT_VERION=${{ inputs.GUT_VERSION }}
+
+          wget https://github.com/bitwes/Gut/archive/refs/tags/v${GUT_VERION}.zip
+          unzip v${GUT_VERION}.zip
+          mv Gut-${GUT_VERION}/addons ./
+          rm -rf Gut-${GUT_VERION}
+          
+      - name: Run Tests
+        working-directory: ${{ inputs.project_path }}
+        run: |
+          godot --version
+          echo "::group::importing project"
+          # HACK - See https://github.com/watsutatsu/godot-samples/issues/3#issuecomment-2119308212
+          godot --headless --import-stuff --editor --path "$PWD"  --quit-after 15
+          echo "::endgroup::"
+
+          echo "::group::running gut tests"
+          godot --headless -s addons/gut/gut_cmdln.gd --path "$PWD" -gdir=${{ inputs.test_path }} -glog=1 -gexit | tee output.txt
+          if grep -q "Tests             none" output.txt; then 
+            echo "No tests found!";
+            exit 1;
+          fi
+          echo "::endgroup::"
