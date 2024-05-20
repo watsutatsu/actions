@@ -1,4 +1,4 @@
-name: Godot CI
+name: Godot Tests
 
 on:
   workflow_call:
@@ -33,8 +33,13 @@ jobs:
           lfs: true
       - name: Setup GUT
         run: |
-          wget https://github.com/bitwes/Gut/archive/refs/tags/v${{ inputs.GUT_VERSION }}.zip
-          unzip ${{ inputs.GUT_VERSION }}.zip
+          GUT_VERION=${{ inputs.GUT_VERSION }}
+          wget https://github.com/bitwes/Gut/archive/refs/tags/v${GUT_VERION}.zip
+          unzip ${GUT_VERION}.zip
+          mv Gut-${GUT_VERION}/addons ./
+          rm -rf Gut-${GUT_VERION}
+
+          find -type -f # DEBUG
       - name: Run Tests
         run: |
           # HACK - See https://github.com/watsutatsu/godot-samples/issues/3#issuecomment-2119308212
