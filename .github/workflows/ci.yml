@@ -16,8 +16,6 @@ jobs:
       project_path: tests/godot-ci-test
 
   godot-export:
-    permissions:
-      pull-requests: write
     uses: ./.github/workflows/godot-export.yml
     with:
       project_path: tests/godot-ci-test
