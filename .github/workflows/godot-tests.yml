@@ -48,6 +48,12 @@ jobs:
           
       - name: Run Tests
         run: |
+        
+          echo "::group::importing project"
           # HACK - See https://github.com/watsutatsu/godot-samples/issues/3#issuecomment-2119308212
           godot --headless --import-stuff --editor --path "$PWD"  --quit-after 15
+          echo "::endgroup::"
+
+          echo "::group::running gut tests"
           godot --headless -s addons/gut/gut_cmdln.gd --path "$PWD" -gdir=${test_path} -glog=1 -gexit
+          echo "::endgroup::"
