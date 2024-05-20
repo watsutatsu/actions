@@ -12,9 +12,9 @@ jobs:
       pull-requests: write
     uses: ./.github/workflows/godot-ci.yml
     with:
-      project_path: test/godot-ci-test
+      project_path: tests/godot-ci-test
     
   tests:
     uses: ./.github/workflows/godot-tests.yml
     with:
-      project_path: test/godot-tests-test
+      project_path: tests/godot-tests-test
