@@ -1,0 +1,43 @@
+name: Godot CI
+
+on:
+  workflow_call:
+    inputs:
+      godot_version:
+        description: Godot version to use when building the project'
+        required: true
+        default: 4.2.2
+        type: string
+
+      gut_version:
+        description: GUT version to use when running tests
+        required: true
+        default: 9.2.1
+        type: string
+
+      project_path:
+        description: Path to the project
+        required: true
+        default: games/test-project
+        type: string
+       
+jobs:
+  export-web:
+    name: Web Export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.2.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Setup GUT
+        run: |
+          wget https://github.com/bitwes/Gut/archive/refs/tags/${{ inputs.GUT_VERSION }}.zip
+          unzip ${{ inputs.GUT_VERSION }}.zip
+      - name: Run Tests
+        run: |
+          # HACK - See https://github.com/watsutatsu/godot-samples/issues/3#issuecomment-2119308212
+          timeout 30s godot --headless --import-stuff --editor --path "$PWD" 
+          godot --headless --verbose --export-release "HTML5" build/web/index.html
