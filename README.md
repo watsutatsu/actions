@@ -8,7 +8,11 @@ This repository serves as an incubator for common GitHub Action workflows. The p
 > [!NOTE]
 > As the structure of this repository evolves, it may become beneficial to separate each workflow into its own dedicated action repository. This approach can enhance maintainability, scalability, and clarity, making it easier to manage, test, and deploy individual workflows.
 
+## Available Workflows
 
+- [godot-ci](.github/workflows/godot-ci.yml.md)
+- [godot-export](.github/workflows/godot-export.yml.md)
+- [godot-tests](.github/workflows/godot-tests.yml.md)
 
 ## Creating a Reusable Workflow
 
