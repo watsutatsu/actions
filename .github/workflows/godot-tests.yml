@@ -23,7 +23,6 @@ on:
 
       test_path:
         description: Path to the test folder
-        required: true
         default: res://test/unit
         type: string
        
