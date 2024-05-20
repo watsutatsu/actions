@@ -56,7 +56,7 @@ jobs:
           echo "::endgroup::"
 
           echo "::group::running gut tests"
-          godot --headless -s addons/gut/gut_cmdln.gd --path "$PWD" -gdir=${{ inputs.test_path }} -glog=1 -gexit | tee output.txt
+          godot --headless -s addons/gut/gut_cmdln.gd --path "$PWD" -gdir= -glog=1 -gexit | tee output.txt
           if grep -q "Tests             none" output.txt; then 
             exit 1;
           fi
