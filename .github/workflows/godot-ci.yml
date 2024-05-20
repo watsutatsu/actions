@@ -20,7 +20,6 @@ on:
        
 jobs:
   export-web:
-    name: Web Export
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.2.2
