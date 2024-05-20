@@ -7,14 +7,21 @@ on:
       - main
 
 jobs:
-  ci:
+  godot-ci:
     permissions:
       pull-requests: write
     uses: ./.github/workflows/godot-ci.yml
     with:
       project_path: tests/godot-ci-test
+
+  godot-export:
+    permissions:
+      pull-requests: write
+    uses: ./.github/workflows/godot-export.yml
+    with:
+      project_path: tests/godot-ci-test
     
-  tests:
+  godot-tests:
     uses: ./.github/workflows/godot-tests.yml
     with:
       project_path: tests/godot-tests-test
