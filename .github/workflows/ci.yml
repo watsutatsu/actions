@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  godot-ci:
+    if: false # Disable this job
+    permissions:
+      pull-requests: write
+    uses: ./.github/workflows/godot-ci.yml
+    with:
+      project_path: tests/godot-ci-test
+
+  godot-export:
+    uses: ./.github/workflows/godot-export.yml
+    with:
+      project_path: tests/godot-ci-test
+    
+  godot-tests:
+    uses: ./.github/workflows/godot-tests.yml
+    with:
+      project_path: tests/godot-tests-test

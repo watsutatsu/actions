@@ -5,19 +5,16 @@ on:
     inputs:
       godot_version:
         description: Godot version to use when building the project'
-        required: true
         default: 4.2.2
         type: string
 
       gut_version:
         description: GUT version to use when running tests
-        required: true
         default: 9.2.1
         type: string
 
       project_path:
         description: Path to the project
-        required: true
         default: games/test-project
         type: string
 
